@@ -1,0 +1,1107 @@
+<html lang="es"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paid Search Academy · Micro-Trainings para Estrategas</title>
+
+<!-- IMPORTACIÓN DE LA TIPOGRAFÍA CORPORATIVA OFICIAL DE WPP -->
+<style>
+  @font-face {
+    font-family: 'WPP-Font';
+    src: url('fonts/WPP-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'WPP-Font';
+    src: url('fonts/WPP-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'WPP-Font';
+    src: url('fonts/WPP-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'WPP-Font';
+    src: url('fonts/WPP-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'WPP-Font';
+    src: url('fonts/WPP-Black.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+  }
+
+  :root{
+    --g-blue:#4285F4;--g-green:#34A853;--g-yellow:#FBBC04;--g-red:#EA4335;
+    --ink:#1f2733;--ink-soft:#5b6675;--bg:#f4f6fb;--card:#ffffff;--line:#e3e8f0;
+    --shadow:0 10px 30px -12px rgba(31,39,51,.18);--radius:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  
+  body{
+    font-family: 'WPP-Font', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;
+  }
+  header.top{background:linear-gradient(120deg,#1a2a4f 0%,#243b6b 45%,#2f4f9e 100%);
+    color:#fff;padding:34px 24px 26px;position:relative;overflow:hidden;}
+  header.top::after{content:"";position:absolute;right:-60px;top:-60px;width:280px;height:280px;
+    background:radial-gradient(circle,rgba(66,133,244,.45),transparent 70%);}
+  .top-inner{max-width:1120px;margin:0 auto;position:relative;z-index:2;}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.2);padding:6px 14px;border-radius:999px;font-size:12.5px;
+    letter-spacing:.5px;text-transform:uppercase;font-weight:600;margin-bottom:16px;}
+  header.top h1{font-size:30px;font-weight:800;letter-spacing:-.5px;}
+  header.top p{margin-top:8px;color:#cdd8ee;max-width:640px;font-size:15px;}
+  .stat-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px;}
+  .stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
+    border-radius:12px;padding:10px 16px;font-size:13px;}
+  .stat b{display:block;font-size:18px;}
+  nav.tabs{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);
+    box-shadow:0 4px 14px -10px rgba(0,0,0,.2);}
+  .tabs-inner{max-width:1120px;margin:0 auto;display:flex;overflow-x:auto;}
+  .tab-btn{flex:1 0 auto;border:none;background:none;cursor:pointer;padding:16px 16px;font-size:13.5px;
+    font-weight:600;color:var(--ink-soft);border-bottom:3px solid transparent;white-space:nowrap;
+    transition:.2s;display:flex;align-items:center;gap:8px;font-family: 'WPP-Font', sans-serif;}
+  .tab-btn .num{width:24px;height:24px;border-radius:50%;background:var(--line);color:var(--ink-soft);
+    display:grid;place-items:center;font-size:12px;font-weight:700;}
+  .tab-btn:hover{color:var(--ink);background:#f8faff;}
+  .tab-btn.active{color:var(--g-blue);border-bottom-color:var(--g-blue);}
+  .tab-btn.active .num{background:var(--g-blue);color:#fff;}
+  .tab-btn.eval.active{color:#7b1fa2;border-bottom-color:#7b1fa2;}
+  .tab-btn.eval.active .num{background:#7b1fa2;}
+  main{max-width:1120px;margin:0 auto;padding:34px 24px 70px;}
+  .block{display:none;animation:fade .4s ease;}
+  .block.active{display:block;}
+  @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .block-head{display:flex;flex-wrap:wrap;align-items:flex-end;gap:14px;margin-bottom:24px;}
+  .block-head h2{font-size:24px;font-weight:800;letter-spacing:-.4px;}
+  .pill{font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;}
+  .pill.time{background:#eef3ff;color:var(--g-blue);}
+  .pill.obj{background:#eafaf0;color:#1f7a44;}
+  .pill.hard{background:#f3e5f5;color:#7b1fa2;}
+  .lead{color:var(--ink-soft);font-size:15px;max-width:760px;margin-bottom:8px;}
+  .grid{display:grid;gap:18px;}
+  .g2{grid-template-columns:repeat(2,1fr);}
+  .g3{grid-template-columns:repeat(3,1fr);}
+  @media(max-width:820px){.g2,.g3{grid-template-columns:1fr;}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;box-shadow:var(--shadow);}
+  .card h3{font-size:16px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:9px;}
+  .card p,.card li{font-size:14px;color:var(--ink-soft);}
+  .card ul{margin:8px 0 0 18px;}.card li{margin-bottom:6px;}
+  .ico{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;font-size:17px;flex:none;}
+  .ico.blue{background:#e8f0fe;color:var(--g-blue);}
+  .ico.green{background:#e6f4ea;color:var(--g-green);}
+  .ico.red{background:#fce8e6;color:var(--g-red);}
+  .ico.yellow{background:#fef7e0;color:#b8860b;}
+  .ico.purple{background:#f3e5f5;color:#7b1fa2;}
+  .section-label{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:1px;
+    color:var(--ink-soft);margin:34px 0 16px;display:flex;align-items:center;gap:10px;}
+  .section-label::before{content:"";width:5px;height:18px;border-radius:3px;background:var(--g-blue);}
+  .section-label.tool::before{background:var(--g-green);}
+  .section-label.quiz::before{background:var(--g-yellow);}
+  .section-label.eval::before{background:#7b1fa2;}
+  .tool{background:linear-gradient(180deg,#ffffff,#f7faff);border:1px solid var(--line);
+    border-left:5px solid var(--g-green);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);}
+  .tool h3{font-size:17px;font-weight:800;margin-bottom:4px;display:flex;align-items:center;gap:9px;}
+  .tool .role{font-size:13px;color:var(--ink-soft);margin-bottom:18px;font-style:italic;}
+  table.data{width:100%;border-collapse:collapse;font-size:13.5px;}
+  table.data th{background:#243b6b;color:#fff;text-align:left;padding:11px 12px;font-weight:600;font-size:12.5px;}
+  table.data td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:middle;}
+  table.data tr:nth-child(even) td{background:#fafbff;}
+  table.data input{width:100%;border:1px solid var(--line);border-radius:7px;padding:7px 8px;font-size:13px;background:#fff;color:var(--ink);font-family: 'WPP-Font', sans-serif;}
+  table.data input:focus{outline:none;border-color:var(--g-blue);box-shadow:0 0 0 3px rgba(66,133,244,.15);}
+  .calc{font-weight:700;}
+  .status{font-size:11.5px;font-weight:800;padding:4px 9px;border-radius:7px;display:inline-block;}
+  .st-over{background:#fce8e6;color:var(--g-red);}.st-under{background:#fef7e0;color:#b8860b;}.st-ok{background:#e6f4ea;color:#1f7a44;}
+  .formula{background:#0f1b33;color:#dbe6ff;border-radius:12px;padding:16px 18px;font-size:14px;
+    margin:16px 0;font-family:'Consolas',monospace;overflow-x:auto;}
+  .formula b{color:var(--g-yellow);}
+  .scroll{overflow-x:auto;}
+  .btn{background:var(--g-blue);color:#fff;border:none;border-radius:999px;padding:11px 22px;font-size:13.5px;font-weight:700;cursor:pointer;transition:.2s;font-family: 'WPP-Font', sans-serif;}
+  .btn:hover{background:#3367d6;}
+  .btn.ghost{background:#eef3ff;color:var(--g-blue);}
+  .btn.green{background:var(--g-green);}.btn.green:hover{background:#2a8c46;}
+  .btn.purple{background:#7b1fa2;}.btn.purple:hover{background:#641a86;}
+  .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+  .glos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  @media(max-width:820px){.glos-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:520px){.glos-grid{grid-template-columns:1fr;}}
+  .flip{perspective:1000px;height:140px;cursor:pointer;}
+  .flip-in{position:relative;width:100%;height:100%;transition:transform .55s;transform-style:preserve-3d;}
+  .flip.flipped .flip-in{transform:rotateY(180deg);}
+  .flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;padding:16px;
+    display:flex;flex-direction:column;justify-content:center;border:1px solid var(--line);font-family: 'WPP-Font', sans-serif;}
+  .flip-front{background:#fff;box-shadow:var(--shadow);}
+  .flip-front .m-name{font-weight:800;font-size:15px;}
+  .flip-front .m-tap{font-size:11.5px;color:var(--g-blue);margin-top:6px;font-weight:600;}
+  .flip-front .m-form{font-size:12px;color:var(--ink-soft);margin-top:4px;font-family:monospace;}
+  .flip-back{background:linear-gradient(150deg,#243b6b,#3a5db5);color:#fff;transform:rotateY(180deg);}
+  .flip-back .m-why{font-size:13px;}
+  .flip-back .m-lbl{font-size:10.5px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:5px;}
+  .game-wrap{display:grid;grid-template-columns:280px 1fr;gap:18px;}
+  @media(max-width:760px){.game-wrap{grid-template-columns:1fr;}}
+  .kw-pool{background:#fff;border:1px dashed var(--g-blue);border-radius:12px;padding:14px;min-height:120px;}
+  .kw-pool h4,.buckets h4{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--ink-soft);margin-bottom:10px;}
+  .kw{background:#eef3ff;border:1px solid #cdd9f7;border-radius:8px;padding:8px 11px;margin-bottom:8px;
+    font-size:13px;font-weight:600;cursor:grab;display:flex;align-items:center;gap:8px;transition:.15s;font-family: 'WPP-Font', sans-serif;}
+  .kw:active{cursor:grabbing;}.kw.dragging{opacity:.4;}
+  .kw::before{content:"⠿";color:var(--ink-soft);font-size:13px;}
+  .buckets{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  @media(max-width:760px){.buckets{grid-template-columns:1fr;}}
+  .bucket{background:#fafbff;border:2px dashed var(--line);border-radius:12px;padding:12px;min-height:150px;transition:.18s;}
+  .bucket.over{border-color:var(--g-green);background:#f0faf3;}
+  .bucket .b-title{font-weight:800;font-size:13px;margin-bottom:4px;}
+  .bucket .b-sub{font-size:11px;color:var(--ink-soft);margin-bottom:10px;}
+  .kw.correct{background:#e6f4ea;border-color:#9fd9b3;}
+  .kw.correct::after{content:"✓";margin-left:auto;color:var(--g-green);font-weight:800;}
+  .kw.wrong{background:#fce8e6;border-color:#f3b4ae;}
+  .kw.wrong::after{content:"✕";margin-left:auto;color:var(--g-red);font-weight:800;}
+  .game-msg{margin-top:14px;font-size:14px;font-weight:700;min-height:22px;}
+  .patient{background:linear-gradient(150deg,#fff5f5,#fff);border:1px solid #f3c8c4;border-radius:14px;
+    padding:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px;}
+  @media(max-width:680px){.patient{grid-template-columns:1fr 1fr;}}
+  .vital{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px;text-align:center;}
+  .vital .v-num{font-size:22px;font-weight:800;color:var(--g-red);}
+  .vital .v-lbl{font-size:11.5px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.5px;}
+  .treat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+  @media(max-width:680px){.treat-grid{grid-template-columns:1fr;}}
+  .treat{border:2px solid var(--line);border-radius:12px;padding:14px;cursor:pointer;transition:.18s;background:#fff;
+    display:flex;gap:12px;align-items:flex-start;font-family: 'WPP-Font', sans-serif;}
+  .treat:hover{border-color:var(--g-blue);}
+  .treat.sel{border-color:var(--g-green);background:#f0faf3;}
+  .treat .chk{width:22px;height:22px;border-radius:6px;border:2px solid var(--line);flex:none;display:grid;place-items:center;font-size:13px;color:#fff;transition:.18s;}
+  .treat.sel .chk{background:var(--g-green);border-color:var(--g-green);}
+  .treat .t-name{font-weight:700;font-size:14px;}
+  .treat .t-desc{font-size:12.5px;color:var(--ink-soft);margin-top:3px;}
+  .diagnosis{margin-top:16px;padding:16px;border-radius:12px;font-size:14px;display:none;}
+  .diagnosis.show{display:block;}
+  .diagnosis.good{background:#e6f4ea;border:1px solid #9fd9b3;}
+  .diagnosis.bad{background:#fef7e0;border:1px solid #f1d57a;}
+  .ticket{background:linear-gradient(180deg,#fffdf5,#fff);border:1px solid #f1e2a8;
+    border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);}
+  .ticket h3{font-size:18px;font-weight:800;display:flex;align-items:center;gap:10px;margin-bottom:6px;}
+  .ticket .sub{font-size:13.5px;color:var(--ink-soft);margin-bottom:20px;}
+  .q,.eval-q{margin-bottom:22px;}
+  .q .qtext,.eval-q .qtext{font-weight:700;font-size:14.5px;margin-bottom:10px;}
+  .q .qtext .qn,.eval-q .qtext .qn{color:var(--g-blue);}
+  .opt{display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--line);
+    border-radius:10px;padding:11px 13px;margin-bottom:8px;cursor:pointer;font-size:14px;transition:.15s;font-family: 'WPP-Font', sans-serif;}
+  .opt:hover{border-color:var(--g-blue);background:#f8faff;}
+  .opt input{margin-top:3px;}
+  .opt.correct{border-color:var(--g-green);background:#f0faf3;}
+  .opt.incorrect{border-color:var(--g-red);background:#fdf0ef;}
+  .short input,.short textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:11px;font-size:14px;font-family:inherit;font-family: 'WPP-Font', sans-serif;}
+  .short textarea{min-height:70px;resize:vertical;}
+  .reveal{margin-top:8px;font-size:13px;padding:10px 12px;border-radius:999px;background:#e8f0fe;color:#1a3a7a;display:none;}
+  .reveal.show{display:block;}
+  .result-box{margin-top:16px;padding:16px 18px;border-radius:12px;font-weight:700;font-size:15px;display:none;}
+  .result-box.show{display:block;}
+  .result-box.pass{background:#e6f4ea;color:#1f7a44;}
+  .result-box.mid{background:#fef7e0;color:#b8860b;}
+  .result-box.fail{background:#fdf0ef;color:#b3261e;}
+  .eval-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);margin-bottom:20px;}
+  .eval-mod-head{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:800;margin-bottom:4px;}
+  .eval-mod-head .badge{font-size:11px;font-weight:800;padding:3px 10px;border-radius:999px;background:#f3e5f5;color:#7b1fa2;}
+  .eval-mod-sub{font-size:13px;color:var(--ink-soft);margin-bottom:18px;}
+  .name-bar{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;background:#f3e5f5;border:1px solid #e1bee7;
+    border-radius:14px;padding:16px 18px;margin-bottom:24px;}
+  .name-bar label{font-size:12.5px;font-weight:700;color:#7b1fa2;display:block;margin-bottom:6px;}
+  .name-bar input{border:1px solid #d7b8e0;border-radius:9px;padding:10px 12px;font-size:14px;min-width:230px;font-family:inherit;font-family: 'WPP-Font', sans-serif;}
+  .export-panel{background:linear-gradient(180deg,#ffffff,#faf5fd);border:1px solid #e1bee7;
+    border-left:5px solid #7b1fa2;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);}
+  table.score{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:8px;}
+  table.score th{background:#7b1fa2;color:#fff;text-align:left;padding:10px 12px;font-size:12.5px;}
+  table.score td{padding:9px 12px;border-bottom:1px solid var(--line);}
+  table.score tr:nth-child(even) td{background:#faf6fc;}
+  .score-badge{font-weight:800;padding:3px 10px;border-radius:7px;font-size:12px;}
+  .sb-ok{background:#e6f4ea;color:#1f7a44;}.sb-mid{background:#fef7e0;color:#b8860b;}.sb-no{background:#fdf0ef;color:#b3261e;}.sb-na{background:#eceff4;color:#5b6675;}
+  .row-sub td{font-weight:800;background:#eef3ff !important;}
+  .row-eval-sub td{font-weight:800;background:#f3e5f5 !important;}
+  .row-grand td{font-weight:800;background:#e6f4ea !important;}
+  footer{text-align:center;padding:30px;color:var(--ink-soft);font-size:12.5px;border-top:1px solid var(--line);background:#fff;}
+  .note{font-size:12px;color:var(--ink-soft);background:#f0f4ff;border-left:3px solid var(--g-blue);padding:10px 14px;border-radius:0 8px 8px 0;margin-top:14px;}
+  .progress-line{height:4px;background:var(--line);border-radius:4px;overflow:hidden;margin-top:14px;}
+  .progress-line span{display:block;height:100%;background:linear-gradient(90deg,var(--g-blue),var(--g-green));width:20%;transition:.4s;}
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:#1f2733;color:#fff;
+    padding:12px 20px;border-radius:10px;font-size:13.5px;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,.25);
+    opacity:0;transition:.3s;z-index:200;font-family: 'WPP-Font', sans-serif;}
+  .toast.show{transform:translateX(-50%) translateY(0);opacity:1;}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <span class="eyebrow">🎯 Paid Search Academy · Programa interno</span>
+    <h1>Micro-Trainings: De Ejecutores a Estrategas de Pauta</h1>
+    <p>Cuatro sesiones dinámicas + un examen final situacional para dominar pacing, estructura, benchmarking y optimización avanzada en Search.</p>
+    <div class="stat-row">
+      <div class="stat"><b>4</b> bloques</div>
+      <div class="stat"><b>~145</b> min totales</div>
+      <div class="stat"><b>5</b> herramientas interactivas</div>
+      <div class="stat"><b>15</b> casos situacionales</div>
+    </div>
+    <div class="progress-line"><span id="prog"></span></div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="tabs-inner">
+    <button class="tab-btn active" data-i="0"><span class="num">1</span> Budget &amp; Pacing</button>
+    <button class="tab-btn" data-i="1"><span class="num">2</span> Estructura &amp; Métricas</button>
+    <button class="tab-btn" data-i="2"><span class="num">3</span> Benchmarking</button>
+    <button class="tab-btn" data-i="3"><span class="num">4</span> Hacks de Optimización</button>
+    <button class="tab-btn eval" data-i="4"><span class="num">5</span> 🏁 Examen Final</button>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============== BLOQUE 1 ============== -->
+<section class="block active" id="b0">
+  <div class="block-head">
+    <h2>📅 Bloque 1 · Budget Tracking &amp; Pacing</h2>
+    <span class="pill time">⏱ 30 min</span>
+    <span class="pill obj">🎯 Cero sustos de sobre/subejecución</span>
+  </div>
+  <p class="lead">El <b>pacing</b> es el control del ritmo de gasto del presupuesto asignado a lo largo de un periodo (normalmente mensual). No se trata de gastar por gastar, sino de hacerlo de manera inteligente y fluida.</p>
+  <div class="section-label">¿Por qué es vital?</div>
+  <div class="grid g3">
+    <div class="card"><h3><span class="ico red">📉</span>Evita el "Flatline"</h3><p>Quedarte sin presupuesto el día 20 del mes y apagar campañas ganadoras justo cuando convierten.</p></div>
+    <div class="card"><h3><span class="ico yellow">🔥</span>Evita el "Panic Spend"</h3><p>Gastar el 40% del presupuesto en los últimos 3 días en clics basura solo para cumplir la cuota.</p></div>
+    <div class="card"><h3><span class="ico blue">🤖</span>Eficiencia algorítmica</h3><p>Google Ads learns best with stable budgets. Sharp budget changes restart the <b>Learning Phase</b>.</p></div>
+  </div>
+  <div class="section-label tool">🛠 Simulador de Pacing en vivo</div>
+  <div class="tool">
+    <h3><span class="ico green">📊</span>Calculadora de Ritmo de Gasto</h3>
+    <p class="role">Edita las celdas blancas. El sistema calcula el gasto ideal prorrateado, la desviación y la acción recomendada.</p>
+    <div class="formula"><b>Pacing %</b> = ( Gasto Real a la Fecha ÷ Presupuesto Prorrateado a la Fecha ) × 100<br>
+      &nbsp;&nbsp;Presupuesto Prorrateado = Presupuesto Mensual × ( Días Transcurridos ÷ Días del Mes )</div>
+    <div class="scroll">
+      <table class="data" id="pacingTable">
+        <thead><tr><th>Campaña</th><th>Ppto. Mensual</th><th>Días (transc./total)</th><th>Gasto Ideal a la fecha</th><th>Gasto Real a la fecha</th><th>Pacing %</th><th>Acción Recomendada</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="btn-row">
+      <button class="btn green" id="addCampaignBtn">+ Agregar campaña</button>
+      <button class="btn ghost" id="recalcBtn">↻ Recalcular</button>
+    </div>
+    <div class="note">Regla → <b>Pacing &gt; 110%</b>: Overspending (frena ritmo / baja bids o ppto. diario). · <b>Pacing &lt; 90%</b>: Underspending (expande keywords o flexibiliza pujas). · <b>90–110%</b>: en target.</div>
+  </div>
+  <div class="section-label quiz">📝 Exit Ticket · Bloque 1</div>
+  <div class="ticket" data-quiz="0">
+    <h3>🎫 Formulario Express</h3>
+    <p class="sub">2 preguntas · responde y valida tu retención al instante.</p>
+    <div class="q" data-correct="b">
+      <div class="qtext"><span class="qn">1.</span> Estamos a día 15 de un mes de 30 días, presupuesto total de $10,000 USD y hemos gastado $7,000 USD. Nuestro pacing está:</div>
+      <label class="opt"><input type="radio" name="b1q1" value="a"><span>a) Perfecto.</span></label>
+      <label class="opt"><input type="radio" name="b1q1" value="b"><span>b) En Overspending (gastando de más).</span></label>
+      <label class="opt"><input type="radio" name="b1q1" value="c"><span>c) En Underspending (gastando de menos).</span></label>
+    </div>
+    <div class="q short" data-answer="learning phase|aprendizaje|learning|reinicia">
+      <div class="qtext"><span class="qn">2.</span> ¿Cuál es la principal consecuencia negativa para el algoritmo al hacer cambios drásticos de presupuesto a fin de mes?</div>
+      <input type="text" placeholder="Respuesta corta...">
+      <div class="reveal"><b>Esperado:</b> Reinicia el periodo de aprendizaje (<i>Learning Phase</i>) de Smart Bidding, generando inestabilidad y CPAs erráticos.</div>
+    </div>
+    <button class="btn" id="gradeBtn0">Validar respuestas</button>
+    <div class="result-box"></div>
+  </div>
+</section>
+
+<!-- ============== BLOQUE 2 ============== -->
+<section class="block" id="b1">
+  <div class="block-head">
+    <h2>📅 Bloque 2 · Estructura de Campañas &amp; Métricas</h2>
+    <span class="pill time">⏱ 40 min</span>
+    <span class="pill obj">🎯 Estructuras limpias = datos limpios</span>
+  </div>
+  <p class="lead">Una buena estructura es la columna vertebral de la relevancia: mejora el <b>Quality Score</b> y baja el <b>CPC</b>.</p>
+  <div class="section-label">🏗 Search Account / Campaign Structure</div>
+  <div class="card">
+    <h3><span class="ico blue">📂</span>La Jerarquía Perfecta</h3>
+    <div class="scroll" style="margin-top:6px;">
+      <table class="data">
+        <thead><tr><th>Nivel</th><th>Qué define</th><th>Criterio de organización</th></tr></thead>
+        <tbody>
+          <tr><td><b>Account</b></td><td>Config. global, facturación, conversiones.</td><td>1 cuenta por marca/negocio.</td></tr>
+          <tr><td><b>Campaign</b></td><td>Presupuesto, puja, geo, idioma, objetivo.</td><td>Por <b>objetivo</b> o <b>presupuesto</b> (Brand, Genéricas, Competencia…).</td></tr>
+          <tr><td><b>Ad Group</b></td><td>Agrupa keywords + anuncios afines.</td><td>Por <b>temática / intención</b>.</td></tr>
+          <tr><td><b>Keywords &amp; Ads</b></td><td>El match real con la consulta.</td><td>Keywords estrechas + anuncios relevantes.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">Regla de oro: <b>Account ➡️ Campaign ➡️ Ad Group ➡️ Keywords &amp; Ads</b>.</div>
+  </div>
+  <div class="section-label">⚖️ Search Auctions · ¿Cómo funciona la subasta?</div>
+  <div class="grid g3">
+    <div class="card"><h3><span class="ico blue">💰</span>Bid (Puja)</h3><p>El máximo que estás dispuesto a pagar. <b>No</b> determina por sí solo la posición.</p></div>
+    <div class="card"><h3><span class="ico green">⭐</span>Quality Score</h3><p>CTR esperado + relevancia + experiencia de landing. Mejor QS = menor CPC para la misma posición.</p></div>
+    <div class="card"><h3><span class="ico yellow">🏆</span>Ad Rank</h3><p><b>Ad Rank = Bid × Quality Score</b> (+ formatos/contexto). La subasta ocurre <b>en cada búsqueda</b>.</p></div>
+  </div>
+  <div class="section-label">🎚 Campaign Strategy · Estrategias de Puja</div>
+  <div class="scroll">
+    <table class="data">
+      <thead><tr><th>Tipo</th><th>Estrategia</th><th>Objetivo</th><th>Cuándo usarla</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="6" style="background:#e8f0fe;color:#1a3a7a;font-weight:700;">Smart<br>(automatizada)</td><td><b>Maximize Conversions</b></td><td>Más conversiones dentro del ppto.</td><td>El objetivo es volumen y el ppto. es la restricción.</td></tr>
+        <tr><td><b>Target CPA (tCPA)</b></td><td>Conversiones a un CPA objetivo.</td><td>Tienes un CPA claro y quieres rentabilidad.</td></tr>
+        <tr><td><b>Maximize Conversion Value</b></td><td>Máximo valor de conversión.</td><td>Conversiones de distinto valor; prioriza las mayores.</td></tr>
+        <tr><td><b>Target ROAS (tROAS)</b></td><td>Valor de conversión a un ROAS objetivo.</td><td>Objetivo de ROAS claro, esencial en e-commerce.</td></tr>
+        <tr><td><b>Maximize Clicks</b></td><td>Máximo tráfico dentro del ppto.</td><td>Tráfico, awareness o sin conversion tracking.</td></tr>
+        <tr><td><b>Target Impression Share</b></td><td>Posición/visibilidad objetivo.</td><td>Awareness, visibilidad en keywords clave.</td></tr>
+        <tr><td style="background:#fef7e0;color:#b8860b;font-weight:700;">Manual</td><td><b>Manual CPC</b></td><td>Control granular de pujas.</td><td>Quieres control total y manual.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">💡 CPAs/CPCs objetivo <b>más altos</b> → más inversión y participación en subastas. <b>Más bajos</b> → menor rango de puja y menor participación.</div>
+  <div class="section-label">📊 Glosario de Métricas Esenciales</div>
+  <p class="lead">Toca cada tarjeta para girarla y repasar <b>qué mide</b> y <b>por qué nos importa</b>.</p>
+  <div class="glos-grid" id="glos"></div>
+  <div class="section-label tool">🛠 El Estratega Ordena la Cuenta</div>
+  <div class="tool">
+    <h3><span class="ico green">🎮</span>Sorting de Keywords por intención</h3>
+    <p class="role">Arrastra cada término al <b>Ad Group correcto</b> según su intención. Mantener la relevancia estructural protege el Quality Score.</p>
+    <div class="game-wrap">
+      <div class="kw-pool" id="kwPool"><h4>Términos por clasificar</h4></div>
+      <div>
+        <h4 style="font-size:13px;font-weight:800;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;">Ad Groups</h4>
+        <div class="buckets" id="buckets"></div>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn green" id="checkGameBtn">Validar clasificación</button>
+      <button class="btn ghost" id="resetGameBtn">↻ Reiniciar</button>
+    </div>
+    <div class="game-msg" id="gameMsg"></div>
+  </div>
+  <div class="section-label quiz">📝 Exit Ticket · Bloque 2</div>
+  <div class="ticket" data-quiz="1">
+    <h3>🎫 Formulario Express</h3>
+    <p class="sub">2 preguntas · valida tu dominio de estructura y métricas.</p>
+    <div class="q" data-correct="b">
+      <div class="qtext"><span class="qn">1.</span> Una campaña tiene muchas impresiones pero un CTR muy bajo (&lt;1.5%). ¿Cuál es el problema más probable?</div>
+      <label class="opt"><input type="radio" name="b2q1" value="a"><span>a) La Landing Page no carga.</span></label>
+      <label class="opt"><input type="radio" name="b2q1" value="b"><span>b) Las palabras clave son muy amplias o los anuncios no son atractivos/relevantes.</span></label>
+      <label class="opt"><input type="radio" name="b2q1" value="c"><span>c) El presupuesto es muy bajo.</span></label>
+    </div>
+    <div class="q" data-correct="false">
+      <div class="qtext"><span class="qn">2.</span> Verdadero o Falso: El Conversion Rate (CR) depende directamente de la configuración del anuncio en Google Ads.</div>
+      <label class="opt"><input type="radio" name="b2q2" value="true"><span>Verdadero</span></label>
+      <label class="opt"><input type="radio" name="b2q2" value="false"><span>Falso — depende principalmente de la Landing Page y de la oferta del negocio.</span></label>
+    </div>
+    <button class="btn" id="gradeBtn1">Validar respuestas</button>
+    <div class="result-box"></div>
+  </div>
+</section>
+
+<!-- ============== BLOQUE 3 ============== -->
+<section class="block" id="b2">
+  <div class="block-head">
+    <h2>📅 Bloque 3 · Benchmarking y Cómo Comparar Resultados</h2>
+    <span class="pill time">⏱ 35 min</span>
+    <span class="pill obj">🎯 Dejar de mirar datos en el vacío</span>
+  </div>
+  <p class="lead"><b>Benchmarking</b> es comparar tus métricas contra puntos de referencia: tus datos históricos (interno), tu categoría y el mercado/competidores (externo).</p>
+  <div class="section-label">🧭 Las 3 capas de comparación</div>
+  <div class="grid g3">
+    <div class="card"><h3><span class="ico blue">🕰</span>Nuestros datos previos</h3><p>Tu propia historia. ¿Mejoramos vs. nuestro mes/año anterior?</p></div>
+    <div class="card"><h3><span class="ico green">🏷</span>Benchmark de categoría</h3><p>¿Cómo lucen CTR, CPC, CVR y CPA <b>típicos de tu industria</b>?</p></div>
+    <div class="card"><h3><span class="ico yellow">🌐</span>Mercado / competidores</h3><p>Vía <b>Auction Insights</b>: contra quién compites y quién gana la posición superior.</p></div>
+  </div>
+  <div class="note">⚠️ Una métrica nunca se interpreta sola. Compárala contra <b>el mercado, la categoría y tus propios datos previos</b>.</div>
+  <div class="section-label">📈 MoM vs. YoY</div>
+  <div class="grid g2">
+    <div class="card"><h3><span class="ico blue">📆</span>MoM (Month over Month)</h3><p>Tendencias inmediatas. <b>Cuidado con la estacionalidad.</b></p></div>
+    <div class="card"><h3><span class="ico green">🗓</span>YoY (Year over Year) — regla de oro</h3><p>Compara mayo 2026 vs. mayo 2025 para <b>aislar el factor estacional</b>.</p></div>
+  </div>
+  <div class="section-label tool">🛠 Calculadora de Variación (WoW / MoM / YoY)</div>
+  <div class="tool">
+    <h3><span class="ico green">🧮</span>Fórmula de Variación</h3>
+    <p class="role">Captura los valores de dos periodos. Replica el cuadro de Métricas Netas, Eficiencia y Efectividad.</p>
+    <div class="formula"><b>Variación %</b> = ( Periodo 2 ÷ Periodo 1 − 1 ) × 100</div>
+    <div class="scroll">
+      <table class="data" id="varTable">
+        <thead><tr><th>Periodo</th><th>Spend</th><th>Clicks</th><th>Conversiones</th><th>CPC</th><th>CPA</th><th>CTR (impr.)</th></tr></thead>
+        <tbody>
+          <tr><td><b>Periodo 1</b></td><td><input id="p1_spend" type="number" value="100000"></td><td><input id="p1_clicks" type="number" value="500000"></td><td><input id="p1_conv" type="number" value="800"></td><td class="calc" id="p1_cpc">—</td><td class="calc" id="p1_cpa">—</td><td><input id="p1_impr" type="number" value="1000000"></td></tr>
+          <tr><td><b>Periodo 2</b></td><td><input id="p2_spend" type="number" value="80000"></td><td><input id="p2_clicks" type="number" value="700000"></td><td><input id="p2_conv" type="number" value="620"></td><td class="calc" id="p2_cpc">—</td><td class="calc" id="p2_cpa">—</td><td><input id="p2_impr" type="number" value="1400000"></td></tr>
+          <tr style="font-weight:800;"><td style="color:var(--g-red);">Variación %</td><td class="calc" id="v_spend">—</td><td class="calc" id="v_clicks">—</td><td class="calc" id="v_conv">—</td><td class="calc" id="v_cpc">—</td><td class="calc" id="v_cpa">—</td><td class="calc" id="v_ctr">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="btn-row"><button class="btn green" id="calcVarBtn">↻ Calcular variación</button></div>
+    <div class="note">Lee la historia: el spend bajó −20% pero los clicks subieron +40% (CPC −43%); aun así las conversiones cayeron −22.5%. <b>Más tráfico ≠ mejor resultado.</b></div>
+  </div>
+  <div class="section-label tool">🛠 Análisis de Escenario · Auction Insights</div>
+  <div class="tool">
+    <h3><span class="ico green">🔎</span>El Competidor X aprieta</h3>
+    <p class="role">El <b>Competidor X</b> subió su <b>Overlap Rate +30%</b> y te gana Top of Page. Propón 2 acciones tácticas.</p>
+    <div class="scroll">
+      <table class="data">
+        <thead><tr><th>Competidor</th><th>Impr. Share</th><th>Overlap Rate</th><th>Outranking Share</th><th>Top of Page</th></tr></thead>
+        <tbody>
+          <tr><td><b>Nosotros</b></td><td>42%</td><td>—</td><td>—</td><td>61%</td></tr>
+          <tr><td>Competidor X</td><td>55% ▲</td><td>+30% ▲</td><td>58%</td><td>74% ▲</td></tr>
+          <tr><td>Competidor Y</td><td>31%</td><td>22%</td><td>40%</td><td>49%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <textarea class="short" id="auctionNotes" placeholder="Post-it 1: tu acción táctica..." style="margin-top:14px;border-radius:10px;border:1px solid var(--line);padding:11px;width:100%;min-height:70px;font-family:inherit;font-size:14px;"></textarea>
+    <div class="btn-row"><button class="btn ghost" id="showAuctionTipsBtn">Ver ideas del estratega</button></div>
+    <div class="reveal" id="auctionTips"><b>Posibles jugadas:</b> 1) Subir pujas/IS target en keywords core donde X nos supera; 2) Reforzar relevancia (anuncios + extensiones) para subir QS; 3) Defender términos brand; 4) Mejorar landing para sostener un CPA mayor.</div>
+  </div>
+  <div class="section-label quiz">📝 Exit Ticket · Bloque 3</div>
+  <div class="ticket" data-quiz="2">
+    <h3>🎫 Formulario Express</h3>
+    <p class="sub">2 preguntas de comparación de resultados.</p>
+    <div class="q" data-correct="b">
+      <div class="qtext"><span class="qn">1.</span> Quieres saber si las ventas bajaron en noviembre por mala optimización o por la tendencia normal del negocio. ¿Qué comparación priorizas?</div>
+      <label class="opt"><input type="radio" name="b3q1" value="a"><span>a) MoM (octubre vs. noviembre).</span></label>
+      <label class="opt"><input type="radio" name="b3q1" value="b"><span>b) YoY (noviembre de este año vs. noviembre del año pasado).</span></label>
+      <label class="opt"><input type="radio" name="b3q1" value="c"><span>c) Compararte con el competidor más grande.</span></label>
+    </div>
+    <div class="q" data-correct="b">
+      <div class="qtext"><span class="qn">2.</span> ¿Qué métrica de Auction Insights indica el % de veces que tu anuncio apareció por encima del de un competidor directo?</div>
+      <label class="opt"><input type="radio" name="b3q2" value="a"><span>a) Impression Share.</span></label>
+      <label class="opt"><input type="radio" name="b3q2" value="b"><span>b) Outranking Share (cuota de superación).</span></label>
+      <label class="opt"><input type="radio" name="b3q2" value="c"><span>c) Top of page rate.</span></label>
+    </div>
+    <button class="btn" id="gradeBtn2">Validar respuestas</button>
+    <div class="result-box"></div>
+  </div>
+</section>
+
+<!-- ============== BLOQUE 4 ============== -->
+<section class="block" id="b3">
+  <div class="block-head">
+    <h2>📅 Bloque 4 · Hacks de Optimización en Search</h2>
+    <span class="pill time">⏱ 40 min</span>
+    <span class="pill obj">🎯 Acciones que mueven la aguja</span>
+  </div>
+  <p class="lead">Modo Senior: menos teoría, más acción. Vamos más allá del botón <i>"Aplicar Recomendaciones"</i> de Google.</p>
+  <div class="section-label">🎛 Las palancas de optimización</div>
+  <div class="grid g3">
+    <div class="card"><h3><span class="ico blue">💵</span>Cambio de presupuestos</h3><p>Revisión de gastos y <b>redistribución de fondos</b>: limita campañas menos eficientes para alimentar las más fuertes.</p></div>
+    <div class="card"><h3><span class="ico green">🎨</span>Creativos / Landing Page</h3><p>Refresca RSA y testea variantes de LP. Mejora CTR y, sobre todo, <b>CVR</b>.</p></div>
+    <div class="card"><h3><span class="ico yellow">🔑</span>Keywords / SQR</h3><p>Optimiza con el <b>Search Terms Report</b>: incluye keywords ganadoras y ajusta match types.</p></div>
+    <div class="card"><h3><span class="ico red">🚫</span>Negativización estratégica</h3><p>Procesa el SQR con IA para detectar <b>patrones irrelevantes</b> y negativizarlos <b>antes</b> de que gasten.</p></div>
+    <div class="card"><h3><span class="ico blue">📈</span>Cambio de pujas</h3><p>Sube bids en keywords de alto rendimiento; baja donde el CPA se dispara.</p></div>
+    <div class="card"><h3><span class="ico green">🤖</span>Cambio de estrategia de pujas</h3><p>Migra entre Manual CPC, Max Conversions, tCPA o tROAS según objetivo y data.</p></div>
+  </div>
+  <div class="section-label">🗓 Hack avanzado · Ajustes de Estacionalidad</div>
+  <div class="card">
+    <h3><span class="ico yellow">⚡</span>Seasonality Adjustments en Smart Bidding</h3>
+    <p>Para un <b>CyberMonday</b> o <b>Hot Sale</b> corto, avísale al algoritmo con los <i>Seasonality Adjustments</i>. Evitas que dispare el CPA y tarde semanas en estabilizarse. Ideal solo en <b>eventos cortos (1–7 días) de alta conversión</b>.</p>
+  </div>
+  <div class="section-label tool">🛠 El Quirófano de Campañas</div>
+  <div class="tool">
+    <h3><span class="ico green">🩺</span>Salva al paciente en &lt; 5 minutos</h3>
+    <p class="role">Lee los signos vitales, selecciona las <b>3 acciones</b> de mayor impacto y valida tu diagnóstico.</p>
+    <div class="patient">
+      <div class="vital"><div class="v-num">1.2%</div><div class="v-lbl">CTR</div></div>
+      <div class="vital"><div class="v-num">3/10</div><div class="v-lbl">Quality Score</div></div>
+      <div class="vital"><div class="v-num">↑↑↑</div><div class="v-lbl">CPA volando</div></div>
+    </div>
+    <div class="treat-grid" id="treatGrid"></div>
+    <div class="btn-row">
+      <button class="btn green" id="diagnoseBtn">Confirmar tratamiento (3 acciones)</button>
+      <button class="btn ghost" id="resetTreatBtn">↻ Reiniciar</button>
+    </div>
+    <div class="diagnosis" id="diagnosis"></div>
+  </div>
+  <div class="section-label quiz">📝 Exit Ticket · Bloque 4</div>
+  <div class="ticket" data-quiz="3">
+    <h3>🎫 Formulario Express</h3>
+    <p class="sub">2 preguntas de optimización avanzada.</p>
+    <div class="q" data-correct="b">
+      <div class="qtext"><span class="qn">1.</span> Para corregir un CPA disparado en una campaña con buena data de conversión, ¿qué palanca evalúas primero?</div>
+      <label class="opt"><input type="radio" name="b4q1" value="a"><span>a) Subir el presupuesto diario para "darle más aire".</span></label>
+      <label class="opt"><input type="radio" name="b4q1" value="b"><span>b) Negativizar términos basura del SQR y ajustar pujas/estrategia (p. ej. tCPA) hacia el objetivo.</span></label>
+      <label class="opt"><input type="radio" name="b4q1" value="c"><span>c) Aplicar todas las recomendaciones automáticas de Google.</span></label>
+    </div>
+    <div class="q" data-correct="b">
+      <div class="qtext"><span class="qn">2.</span> ¿Cuándo es ideal usar un Ajuste de Estacionalidad (Seasonality Adjustment)?</div>
+      <label class="opt"><input type="radio" name="b4q2" value="a"><span>a) Cuando cambiamos de agencia.</span></label>
+      <label class="opt"><input type="radio" name="b4q2" value="b"><span>b) En eventos cortos y de alta conversión (ej. un fin de semana de rebajas del 50%).</span></label>
+      <label class="opt"><input type="radio" name="b4q2" value="c"><span>c) Todo el tiempo para ganarle a la competencia.</span></label>
+    </div>
+    <button class="btn" id="gradeBtn3">Validar respuestas</button>
+    <div class="result-box"></div>
+  </div>
+</section>
+
+<!-- ============== BLOQUE 5 · EXAMEN FINAL ============== -->
+<section class="block" id="b4">
+  <div class="block-head">
+    <h2>🏁 Examen Final · Casos Situacionales</h2>
+    <span class="pill hard">🔥 Nivel Intermedio–Difícil</span>
+    <span class="pill obj">🎯 15 escenarios reales de un estratega de pauta</span>
+  </div>
+  <p class="lead">Estas no son preguntas de definición: son decisiones que tomarás frente a una cuenta real. Cada módulo aporta 3–4 escenarios. Responde todo, califica para ver tu desempeño por módulo y exporta tus resultados.</p>
+
+  <div class="name-bar">
+    <div><label for="participantName">👤 Nombre del participante</label><input id="participantName" type="text" placeholder="Ej. Ana Pérez"></div>
+    <div><label for="participantTeam">🧩 Equipo / Cuenta</label><input id="participantTeam" type="text" placeholder="Ej. Retail LATAM"></div>
+  </div>
+
+  <!-- MÓDULO 1 -->
+  <div class="eval-card">
+    <div class="eval-mod-head"><span class="badge">Módulo 1</span> Budget &amp; Pacing</div>
+    <div class="eval-mod-sub">Control de ritmo de gasto y su relación con Smart Bidding.</div>
+    <div class="eval-q" data-module="M1 · Budget &amp; Pacing" data-correct="b">
+      <div class="qtext"><span class="qn">1.1</span> Día 22/30. Tu campaña estrella de <b>tROAS</b> va a 70% de pacing y el cliente exige "gastar todo el presupuesto". Detectas que el cuello de botella es un tROAS objetivo demasiado agresivo. ¿Mejor acción?</div>
+      <label class="opt"><input type="radio" name="e1q1" value="a"><span>a) Subir el presupuesto diario al doble los últimos días.</span></label>
+      <label class="opt"><input type="radio" name="e1q1" value="b"><span>b) Flexibilizar (bajar) gradualmente el tROAS objetivo para que el algoritmo entre a más subastas y capture volumen.</span></label>
+      <label class="opt"><input type="radio" name="e1q1" value="c"><span>c) Cambiar a Maximize Clicks para quemar el presupuesto rápido.</span></label>
+      <label class="opt"><input type="radio" name="e1q1" value="d"><span>d) No hacer nada, el pacing se autocorrige.</span></label>
+      <div class="reveal">✔️ En Smart Bidding por valor, el verdadero "throttle" es el <b>target</b>, no el presupuesto. Un tROAS muy alto limita las subastas elegibles → underspending crónico.</div>
+    </div>
+    <div class="eval-q" data-module="M1 · Budget &amp; Pacing" data-correct="b">
+      <div class="qtext"><span class="qn">1.2</span> Una campaña con <b>Maximize Conversions</b> lleva 3 días estable. El manager pide subir el ppto. diario de $500 a $2,000 de golpe para escalar. ¿Qué adviertes?</div>
+      <label class="opt"><input type="radio" name="e1q2" value="a"><span>a) Adelante, el algoritmo escala linealmente sin riesgo.</span></label>
+      <label class="opt"><input type="radio" name="e1q2" value="b"><span>b) Un salto &gt;20–30% de golpe puede re-disparar la fase de aprendizaje y el CPA; mejor escalar por tramos (~20–25% cada 3–4 días).</span></label>
+      <label class="opt"><input type="radio" name="e1q2" value="c"><span>c) Hay que pausar la campaña 24h antes de subir el presupuesto.</span></label>
+      <label class="opt"><input type="radio" name="e1q2" value="d"><span>d) Pasar a CPC manual antes de escalar.</span></label>
+      <div class="reveal">✔️ Escalar es válido, pero los saltos bruscos reinician aprendizaje. El escalado por tramos preserva la estabilidad del CPA.</div>
+    </div>
+    <div class="eval-q" data-module="M1 · Budget &amp; Pacing" data-correct="c">
+      <div class="qtext"><span class="qn">1.3</span> Tienes 4 campañas en un <b>Shared Budget</b>. Una campaña de marca de bajo CPA consume el 80% del presupuesto compartido y ahoga al prospecting. ¿Qué haces?</div>
+      <label class="opt"><input type="radio" name="e1q3" value="a"><span>a) Subir el shared budget global y listo.</span></label>
+      <label class="opt"><input type="radio" name="e1q3" value="b"><span>b) Pausar la campaña de marca.</span></label>
+      <label class="opt"><input type="radio" name="e1q3" value="c"><span>c) Sacar el prospecting del shared budget y darle presupuestos individuales protegidos.</span></label>
+      <label class="opt"><input type="radio" name="e1q3" value="d"><span>d) Bajar las pujas de marca a la mitad.</span></label>
+      <div class="reveal">✔️ El shared budget premia a quien gasta más rápido/barato (marca). Para proteger el prospecting hay que aislarlo con presupuesto propio.</div>
+    </div>
+    <div class="eval-q" data-module="M1 · Budget &amp; Pacing" data-correct="d">
+      <div class="qtext"><span class="qn">1.4</span> Día 10/30, una campaña va a <b>140% de pacing</b> pero con CPA dentro de objetivo y ROAS excelente. Jugada de un estratega senior:</div>
+      <label class="opt"><input type="radio" name="e1q4" value="a"><span>a) Frenar de inmediato bajando el presupuesto: el pacing manda.</span></label>
+      <label class="opt"><input type="radio" name="e1q4" value="b"><span>b) Apagar la campaña hasta fin de mes.</span></label>
+      <label class="opt"><input type="radio" name="e1q4" value="c"><span>c) Subir el tCPA para gastar aún más rápido.</span></label>
+      <label class="opt"><input type="radio" name="e1q4" value="d"><span>d) Evaluar reasignar presupuesto adicional hacia esa campaña (está siendo eficiente) recortando de campañas ineficientes. El pacing es guía, no dogma.</span></label>
+      <div class="reveal">✔️ El pacing nunca se lee solo: si la eficiencia es alta, "overspending" es una oportunidad de reinversión, no un problema.</div>
+    </div>
+  </div>
+
+  <!-- MÓDULO 2 -->
+  <div class="eval-card">
+    <div class="eval-mod-head"><span class="badge">Módulo 2</span> Estructura &amp; Métricas</div>
+    <div class="eval-mod-sub">Diagnóstico estructural, subasta y lectura de métricas.</div>
+    <div class="eval-q" data-module="M2 · Estructura &amp; Métricas" data-correct="b">
+      <div class="qtext"><span class="qn">2.1</span> Un Ad Group tiene 60 keywords mezclando "seguro de auto", "seguro de vida" y "seguro de viaje", con 3 anuncios genéricos. Diagnóstico y fix prioritario:</div>
+      <label class="opt"><input type="radio" name="e2q1" value="a"><span>a) Subir pujas para mejorar posición.</span></label>
+      <label class="opt"><input type="radio" name="e2q1" value="b"><span>b) Baja relevancia anuncio↔keyword diluye el QS; dividir en Ad Groups temáticos con anuncios específicos por intención.</span></label>
+      <label class="opt"><input type="radio" name="e2q1" value="c"><span>c) Añadir más keywords en broad para ampliar alcance.</span></label>
+      <label class="opt"><input type="radio" name="e2q1" value="d"><span>d) Pausar el Ad Group y empezar sin estructura.</span></label>
+      <div class="reveal">✔️ Un Ad Group debe tener una sola intención. Mezclar temas rompe la relevancia, baja el CTR esperado y encarece el CPC vía Quality Score.</div>
+    </div>
+    <div class="eval-q" data-module="M2 · Estructura &amp; Métricas" data-correct="c">
+      <div class="qtext"><span class="qn">2.2</span> Dos campañas distintas pujan por la misma keyword "crm para pymes" y observas CPCs inflados. ¿Qué ocurre y cómo lo resuelves?</div>
+      <label class="opt"><input type="radio" name="e2q2" value="a"><span>a) Es normal, Google premia tener más campañas activas.</span></label>
+      <label class="opt"><input type="radio" name="e2q2" value="b"><span>b) Subir el presupuesto de ambas.</span></label>
+      <label class="opt"><input type="radio" name="e2q2" value="c"><span>c) Canibalización interna: compites contra ti mismo. Consolida la keyword en una campaña/ad group y usa negativas cruzadas.</span></label>
+      <label class="opt"><input type="radio" name="e2q2" value="d"><span>d) Cambiar ambas a Target Impression Share.</span></label>
+      <div class="reveal">✔️ El solapamiento desordena señales y eleva CPCs efectivos. Se resuelve con negativas cruzadas y consolidación.</div>
+    </div>
+    <div class="eval-q" data-module="M2 · Estructura &amp; Métricas" data-correct="b">
+      <div class="qtext"><span class="qn">2.3</span> Una keyword tiene CTR alto (9%) pero CVR muy bajo (0.2%) y CPA disparado. La LP carga bien y es relevante. Causa más probable:</div>
+      <label class="opt"><input type="radio" name="e2q3" value="a"><span>a) El Quality Score es bajo.</span></label>
+      <label class="opt"><input type="radio" name="e2q3" value="b"><span>b) Desajuste entre la promesa del anuncio y la intención/oferta real: atrae clics pero no compradores.</span></label>
+      <label class="opt"><input type="radio" name="e2q3" value="c"><span>c) El presupuesto es insuficiente.</span></label>
+      <label class="opt"><input type="radio" name="e2q3" value="d"><span>d) Falta subir la puja.</span></label>
+      <div class="reveal">✔️ CTR alto + CVR bajo = clic fácil, conversión difícil. Suele ser intención mal calificada o promesa que no se cumple.</div>
+    </div>
+    <div class="eval-q" data-module="M2 · Estructura &amp; Métricas" data-correct="b">
+      <div class="qtext"><span class="qn">2.4</span> Un competidor con una puja <b>menor</b> que la tuya aparece por encima en varias búsquedas. ¿Cómo lo explicas a un junior?</div>
+      <label class="opt"><input type="radio" name="e2q4" value="a"><span>a) Google se equivocó en la subasta.</span></label>
+      <label class="opt"><input type="radio" name="e2q4" value="b"><span>b) Ad Rank = Puja × Quality Score (+ formatos/contexto). Su mejor relevancia le permite superarte pagando menos.</span></label>
+      <label class="opt"><input type="radio" name="e2q4" value="c"><span>c) Está usando una técnica prohibida.</span></label>
+      <label class="opt"><input type="radio" name="e2q4" value="d"><span>d) Simplemente tiene más presupuesto.</span></label>
+      <div class="reveal">✔️ La calidad multiplica la puja. Mejorar QS es la palanca más rentable: subes posición sin pagar más.</div>
+    </div>
+  </div>
+
+  <!-- MÓDULO 3 -->
+  <div class="eval-card">
+    <div class="eval-mod-head"><span class="badge">Módulo 3</span> Benchmarking</div>
+    <div class="eval-mod-sub">Interpretar variaciones sin caer en falsos positivos.</div>
+    <div class="eval-q" data-module="M3 · Benchmarking" data-correct="b">
+      <div class="qtext"><span class="qn">3.1</span> Tu CTR cayó <b>−12% MoM</b>, pero <b>YoY está +18%</b> y el benchmark de tu categoría también subió este trimestre. Lectura correcta:</div>
+      <label class="opt"><input type="radio" name="e3q1" value="a"><span>a) Estás fallando: hay que rehacer todos los anuncios ya.</span></label>
+      <label class="opt"><input type="radio" name="e3q1" value="b"><span>b) La caída MoM es probablemente estacional/competitiva; el YoY positivo y el contexto de categoría indican que sigues por encima de tu base. Monitorear, no sobre-reaccionar.</span></label>
+      <label class="opt"><input type="radio" name="e3q1" value="c"><span>c) Ignorar el YoY, solo importa el MoM.</span></label>
+      <label class="opt"><input type="radio" name="e3q1" value="d"><span>d) Bajar todas las pujas de inmediato.</span></label>
+      <div class="reveal">✔️ Tres capas: dato previo (YoY ↑), categoría (↑) y mercado. Reaccionar solo al MoM negativo sería un falso positivo.</div>
+    </div>
+    <div class="eval-q" data-module="M3 · Benchmarking" data-correct="b">
+      <div class="qtext"><span class="qn">3.2</span> Auction Insights: el Competidor X subió Overlap Rate +30% y su Outranking Share sobre ti pasó de 40% a 65%. Tu CPA aún está en objetivo. Acción de estratega:</div>
+      <label class="opt"><input type="radio" name="e3q2" value="a"><span>a) Guerra de pujas: subir bids al máximo en todo.</span></label>
+      <label class="opt"><input type="radio" name="e3q2" value="b"><span>b) Defender selectivamente las keywords core de alto valor (subir IS target/pujas donde importa), reforzar QS y proteger brand, sin sacrificar el CPA global.</span></label>
+      <label class="opt"><input type="radio" name="e3q2" value="c"><span>c) No hacer nada, el CPA está bien.</span></label>
+      <label class="opt"><input type="radio" name="e3q2" value="d"><span>d) Pausar las campañas afectadas.</span></label>
+      <div class="reveal">✔️ Responder con cirugía, no con martillo: priorizar dónde el competidor te quita valor real y reforzar relevancia para no inflar el CPA.</div>
+    </div>
+    <div class="eval-q" data-module="M3 · Benchmarking" data-correct="c">
+      <div class="qtext"><span class="qn">3.3</span> El CPA subió <b>+25% en noviembre</b>. Antes de declarar "mala optimización", ¿qué comparación priorizas?</div>
+      <label class="opt"><input type="radio" name="e3q3" value="a"><span>a) MoM contra octubre.</span></label>
+      <label class="opt"><input type="radio" name="e3q3" value="b"><span>b) Contra el competidor más grande del país.</span></label>
+      <label class="opt"><input type="radio" name="e3q3" value="c"><span>c) YoY contra noviembre del año anterior, para aislar estacionalidad (Black Friday/CyberMonday encarecen la subasta para todos).</span></label>
+      <label class="opt"><input type="radio" name="e3q3" value="d"><span>d) No comparar: actuar de inmediato.</span></label>
+      <div class="reveal">✔️ Noviembre vs. octubre confunde estacionalidad con gestión. El YoY aísla el efecto temporada.</div>
+    </div>
+    <div class="eval-q" data-module="M3 · Benchmarking" data-correct="b">
+      <div class="qtext"><span class="qn">3.4</span> Tu Search IS es 45%. <b>Lost IS (rank) = 40%</b> y <b>Lost IS (budget) = 15%</b>. ¿Dónde está la mayor oportunidad?</div>
+      <label class="opt"><input type="radio" name="e3q4" value="a"><span>a) Subir el presupuesto: el problema es budget.</span></label>
+      <label class="opt"><input type="radio" name="e3q4" value="b"><span>b) El mayor lastre es rank: mejorar Quality Score y/o pujas para ser elegible. El presupuesto es secundario aquí.</span></label>
+      <label class="opt"><input type="radio" name="e3q4" value="c"><span>c) No hay oportunidad, 45% es perfecto.</span></label>
+      <label class="opt"><input type="radio" name="e3q4" value="d"><span>d) Bajar las pujas para ahorrar.</span></label>
+      <div class="reveal">✔️ Lost IS (rank) 40% &gt; Lost IS (budget) 15%: el cuello de botella es relevancia/puja, no dinero.</div>
+    </div>
+  </div>
+
+  <!-- MÓDULO 4 -->
+  <div class="eval-card">
+    <div class="eval-mod-head"><span class="badge">Módulo 4</span> Hacks de Optimización</div>
+    <div class="eval-mod-sub">Decisiones avanzadas de optimización y manejo del aprendizaje.</div>
+    <div class="eval-q" data-module="M4 · Hacks de Optimización" data-correct="b">
+      <div class="qtext"><span class="qn">4.1</span> Viene un Hot Sale de 3 días donde esperas que la CVR se <b>triplique</b>. Configuración correcta en Smart Bidding:</div>
+      <label class="opt"><input type="radio" name="e4q1" value="a"><span>a) Cambiar a CPC manual durante el evento.</span></label>
+      <label class="opt"><input type="radio" name="e4q1" value="b"><span>b) Aplicar un Seasonality Adjustment acotado a esas fechas, indicando el alza de conversión esperada para que el algoritmo no reaccione tarde.</span></label>
+      <label class="opt"><input type="radio" name="e4q1" value="c"><span>c) Subir el tCPA 300% de forma permanente.</span></label>
+      <label class="opt"><input type="radio" name="e4q1" value="d"><span>d) Pausar y recrear las campañas.</span></label>
+      <div class="reveal">✔️ El Seasonality Adjustment es justo para picos cortos y predecibles: anticipa el cambio de CVR sin desestabilizar el modelo a largo plazo.</div>
+    </div>
+    <div class="eval-q" data-module="M4 · Hacks de Optimización" data-correct="b">
+      <div class="qtext"><span class="qn">4.2</span> El SQR muestra miles de términos gastando en consultas irrelevantes por keywords en broad. Proceso senior:</div>
+      <label class="opt"><input type="radio" name="e4q2" value="a"><span>a) Pasar todo a exacta y borrar las broad.</span></label>
+      <label class="opt"><input type="radio" name="e4q2" value="b"><span>b) Procesar el SQR a escala (IA/scripts) para detectar patrones, crear listas de negativas compartidas y refinar match types, de forma recurrente (semanal).</span></label>
+      <label class="opt"><input type="radio" name="e4q2" value="c"><span>c) Esperar a que Google lo optimice solo.</span></label>
+      <label class="opt"><input type="radio" name="e4q2" value="d"><span>d) Pausar la campaña.</span></label>
+      <div class="reveal">✔️ La negativización estratégica es un proceso continuo y a escala, no una limpieza única. Broad + Smart Bidding necesita disciplina de negativas.</div>
+    </div>
+    <div class="eval-q" data-module="M4 · Hacks de Optimización" data-correct="b">
+      <div class="qtext"><span class="qn">4.3</span> Una campaña tCPA acaba de entrar en learning; al día 3 el CPA está volátil y el cliente exige cambios YA. ¿Qué recomiendas?</div>
+      <label class="opt"><input type="radio" name="e4q3" value="a"><span>a) Cambios agresivos diarios hasta que mejore.</span></label>
+      <label class="opt"><input type="radio" name="e4q3" value="b"><span>b) Mantener la estrategia estable, no tocar target/presupuesto bruscamente y dar ~1–2 semanas; explicar el costo de reiniciar el aprendizaje.</span></label>
+      <label class="opt"><input type="radio" name="e4q3" value="c"><span>c) Cambiar a Maximize Clicks.</span></label>
+      <label class="opt"><input type="radio" name="e4q3" value="d"><span>d) Duplicar la campaña.</span></label>
+      <div class="reveal">✔️ El liderazgo senior incluye gestionar expectativas: tocar la campaña en learning solo reinicia el reloj y empeora la volatilidad.</div>
+    </div>
+    <div class="eval-q" data-module="M4 · Hacks de Optimización" data-correct="a">
+      <div class="qtext"><span class="qn">4.4</span> Una campaña <b>tROAS</b> rinde por encima del objetivo y quieres escalar volumen sin romper la eficiencia. Mejor jugada:</div>
+      <label class="opt"><input type="radio" name="e4q4" value="a"><span>a) Bajar el tROAS objetivo de forma gradual para permitir más subastas/volumen, monitoreando el ROAS resultante.</span></label>
+      <label class="opt"><input type="radio" name="e4q4" value="b"><span>b) Subir el tROAS objetivo para "exigir más".</span></label>
+      <label class="opt"><input type="radio" name="e4q4" value="c"><span>c) Cambiar a Manual CPC.</span></label>
+      <label class="opt"><input type="radio" name="e4q4" value="d"><span>d) Duplicar presupuesto y target el mismo día.</span></label>
+      <div class="reveal">✔️ Bajar el tROAS = aceptar un retorno algo menor por unidad a cambio de mucho más volumen. Es la palanca clásica para escalar eficiencia sobrante.</div>
+    </div>
+  </div>
+
+  <div class="btn-row" style="margin-bottom:8px;">
+    <button class="btn purple" id="gradeEvalBtn">🧮 Calificar examen final</button>
+    <button class="btn ghost" id="resetEvalBtn">↻ Limpiar respuestas</button>
+  </div>
+  <div class="result-box" id="evalResult"></div>
+
+  <!-- ===== EXPORTACIÓN ===== -->
+  <div class="section-label eval">📤 Exportación de Resultados</div>
+  <div class="export-panel">
+    <h3 style="font-size:17px;font-weight:800;display:flex;align-items:center;gap:9px;margin-bottom:4px;"><span class="ico purple">📊</span>Tablero de desempeño &amp; exportación</h3>
+    <p class="role" style="color:var(--ink-soft);font-size:13px;font-style:italic;margin-bottom:16px;">Consolida los 4 Exit Tickets + el Examen Final (4 módulos), con subtotales y total general. Califica primero y luego exporta.</p>
+    <div class="scroll">
+      <table class="score" id="scoreboard">
+        <thead><tr><th>Sección</th><th>Tipo</th><th>Aciertos</th><th>%</th><th>Estado</th></tr></thead>
+        <tbody><tr><td colspan="5" style="text-align:center;color:var(--ink-soft);padding:18px;">Aún no has calificado nada. Responde los Exit Tickets y el Examen Final.</td></tr></tbody>
+      </table>
+    </div>
+    <div class="btn-row">
+      <button class="btn purple" id="downloadCSVBtn">⬇️ Descargar CSV completo</button>
+      <button class="btn ghost" id="copySummaryBtn">📋 Copiar resumen</button>
+      <button class="btn ghost" id="printBtn">🖨️ Imprimir / PDF</button>
+      <button class="btn green" id="refreshScoreboardBtn">↻ Actualizar tablero</button>
+    </div>
+    <div class="note">El CSV incluye <b>nombre, equipo y fecha</b>, el <b>detalle de cada Exit Ticket</b> y de <b>cada pregunta del Examen Final</b> (pregunta, respuesta dada, respuesta correcta, resultado), más los <b>puntajes por módulo, subtotales y total general</b>.</div>
+  </div>
+</section>
+
+</main>
+
+<footer>Paid Search Academy · Programa interno de formación · Material interactivo para estrategas de pauta en Search.</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============ NAV ============ */
+const tabs=[...document.querySelectorAll('.tab-btn')];
+const blocks=[...document.querySelectorAll('.block')];
+tabs.forEach(t=>t.addEventListener('click',()=>{
+  const i=parseInt(t.dataset.i);
+  tabs.forEach(x=>x.classList.remove('active'));
+  blocks.forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  blocks[i].classList.add('active');
+  document.getElementById('prog').style.width=((i+1)*20)+'%';
+  if(i===4) refreshScoreboard();
+  window.scrollTo({top:0,behavior:'smooth'});
+}));
+
+/* ============ RESULTS STORE ============ */
+const exitNames={0:'Bloque 1 · Budget & Pacing',1:'Bloque 2 · Estructura & Métricas',2:'Bloque 3 · Benchmarking',3:'Bloque 4 · Hacks de Optimización'};
+const trainingResults={exit:{},evalByModule:{}};
+
+/* ============ BLOQUE 1 · PACING ============ */
+const pacingData=[
+  {name:'Brand · Genéricas',budget:10000,days:'15/30',spend:7000},
+  {name:'Non-Brand · Performance',budget:25000,days:'15/30',spend:9500},
+  {name:'Competencia',budget:8000,days:'15/30',spend:4100}
+];
+function pacingRow(d){
+  return `<tr>
+    <td><input value="${d.name}" oninput="recalcPacing()"></td>
+    <td><input type="number" value="${d.budget}" data-f="budget" oninput="recalcPacing()"></td>
+    <td><input value="${d.days}" data-f="days" oninput="recalcPacing()"></td>
+    <td class="calc" data-c="ideal">—</td>
+    <td><input type="number" value="${d.spend}" data-f="spend" oninput="recalcPacing()"></td>
+    <td class="calc" data-c="pacing">—</td>
+    <td data-c="action">—</td></tr>`;
+}
+function renderPacing(){document.querySelector('#pacingTable tbody').innerHTML=pacingData.map(pacingRow).join('');recalcPacing();}
+
+document.getElementById('addCampaignBtn').addEventListener('click', () => {
+  pacingData.push({name:'Nueva campaña',budget:5000,days:'15/30',spend:0});
+  renderPacing();
+});
+
+document.getElementById('recalcBtn').addEventListener('click', recalcPacing);
+
+function recalcPacing(){
+  [...document.querySelectorAll('#pacingTable tbody tr')].forEach(r=>{
+    const budget=+r.querySelector('[data-f="budget"]').value||0;
+    const days=r.querySelector('[data-f="days"]').value;
+    const spend=+r.querySelector('[data-f="spend"]').value||0;
+    const [el,tot]=days.split('/').map(Number);
+    const ideal=(budget*(el/(tot||1)))||0;
+    const pacing=ideal>0?(spend/ideal*100):0;
+    r.querySelector('[data-c="ideal"]').textContent='$'+ideal.toLocaleString('en-US',{maximumFractionDigits:0});
+    const pc=r.querySelector('[data-c="pacing"]'),ac=r.querySelector('[data-c="action"]');
+    if(pacing>110){pc.innerHTML=`<span class="status st-over">${pacing.toFixed(0)}%</span>`;ac.innerHTML='🔴 Overspending — frena ritmo / baja bids o ppto. diario';}
+    else if(pacing<90&&ideal>0){pc.innerHTML=`<span class="status st-under">${pacing.toFixed(0)}%</span>`;ac.innerHTML='🟡 Underspending — expande keywords / flexibiliza pujas';}
+    else{pc.innerHTML=`<span class="status st-ok">${pacing.toFixed(0)}%</span>`;ac.innerHTML='🟢 En target — mantén el ritmo';}
+  });
+}
+renderPacing();
+
+/* ============ BLOQUE 2 · GLOSARIO ============ */
+const metrics=[
+  {n:'Impressions',f:'Veces que se mostró tu anuncio',w:'Mide el alcance y volumen de mercado disponible.'},
+  {n:'CTR',f:'(Clicks / Impressions) × 100',w:'Mide la relevancia de tu anuncio frente a la búsqueda.'},
+  {n:'CPC',f:'Costo total / Clicks',w:'Lo que pagas por cada visita. A menor CPC, más tráfico por el mismo dinero.'},
+  {n:'Conversion Rate',f:'(Conversiones / Clicks) × 100',w:'Efectividad de tu landing page y calidad del tráfico.'},
+  {n:'CPA / CPL',f:'Costo total / Conversiones',w:'El costo real de conseguir un cliente o lead.'},
+  {n:'Impression Share',f:'Impr. obtenidas / Impr. elegibles',w:'Qué porción del mercado disponible estás capturando.'},
+  {n:'ROAS',f:'Ingresos atribuibles / Inversión',w:'Retorno sobre la inversión publicitaria; clave en e-commerce.'},
+  {n:'AOV',f:'Ingresos totales / Nº de órdenes',w:'Ticket promedio; contextualiza si un CPA es rentable.'}
+];
+document.getElementById('glos').innerHTML=metrics.map(m=>`
+  <div class="flip" onclick="this.classList.toggle('flipped')"><div class="flip-in">
+    <div class="flip-face flip-front"><div class="m-name">${m.n}</div><div class="m-form">${m.f}</div><div class="m-tap">💡 Toca para ver importancia</div></div>
+    <div class="flip-face flip-back"><div class="m-lbl">¿Por qué nos importa?</div><div class="m-why">${m.w}</div></div>
+  </div></div>`).join('');
+
+/* ============ BLOQUE 2 · JUEGO ============ */
+const keywords=[
+  {t:'tenis para correr maratón',ag:'running'},{t:'zapatillas running mujer',ag:'running'},{t:'tenis deportivos para gym',ag:'running'},
+  {t:'zapatos formales de cuero hombre',ag:'formal'},{t:'mocasines para oficina',ag:'formal'},{t:'zapato de vestir negro',ag:'formal'},
+  {t:'botas de senderismo impermeables',ag:'outdoor'},{t:'calzado para montaña trekking',ag:'outdoor'}
+];
+const agInfo={running:{title:'AG · Tenis para Correr',sub:'Intención: deporte / running'},formal:{title:'AG · Zapatos Formales',sub:'Intención: vestir / oficina'},outdoor:{title:'AG · Calzado Outdoor',sub:'Intención: montaña / trekking'}};
+let dragEl=null;
+
+function resetGame(){
+  const pool=document.getElementById('kwPool');pool.innerHTML='<h4>Términos por clasificar</h4>';
+  [...keywords].sort(()=>Math.random()-.5).forEach((k,i)=>{const el=document.createElement('div');el.className='kw';el.draggable=true;el.textContent=k.t;el.dataset.ag=k.ag;el.id='kw'+i;addDrag(el);pool.appendChild(el);});
+  const b=document.getElementById('buckets');
+  b.innerHTML=Object.keys(agInfo).map(k=>`<div class="bucket" data-ag="${k}"><div class="b-title">${agInfo[k].title}</div><div class="b-sub">${agInfo[k].sub}</div></div>`).join('');
+  [...b.querySelectorAll('.bucket')].forEach(addDrop);addDrop(pool);
+  document.getElementById('gameMsg').textContent='';
+}
+function addDrag(el){el.addEventListener('dragstart',()=>{dragEl=el;el.classList.add('dragging');});el.addEventListener('dragend',()=>el.classList.remove('dragging'));}
+function addDrop(zone){
+  zone.addEventListener('dragover',e=>{e.preventDefault();zone.classList.add('over');});
+  zone.addEventListener('dragleave',()=>zone.classList.remove('over'));
+  zone.addEventListener('drop',e=>{e.preventDefault();zone.classList.remove('over');if(dragEl){dragEl.classList.remove('correct','wrong');zone.appendChild(dragEl);}});
+}
+function checkGame(){
+  let correct=0,placed=0;const total=keywords.length;
+  [...document.querySelectorAll('.bucket')].forEach(b=>{[...b.querySelectorAll('.kw')].forEach(kw=>{placed++;kw.classList.remove('correct','wrong');if(kw.dataset.ag===b.dataset.ag){kw.classList.add('correct');correct++;}else kw.classList.add('wrong');});});
+  const msg=document.getElementById('gameMsg');
+  if(placed<total){msg.style.color='#b8860b';msg.textContent=`⚠️ Te faltan términos por clasificar (${placed}/${total}).`;return;}
+  if(correct===total){msg.style.color='#1f7a44';msg.textContent='✅ ¡Perfecto! Estructura 100% relevante. Quality Score protegido.';}
+  else{msg.style.color='#EA4335';msg.textContent=`Tienes ${correct}/${total} correctos. Revisa los ✕ y reasígnalos.`;}
+}
+
+document.getElementById('checkGameBtn').addEventListener('click', checkGame);
+document.getElementById('resetGameBtn').addEventListener('click', resetGame);
+resetGame();
+
+/* ============ BLOQUE 3 · VARIACIÓN ============ */
+function pct(v){return `<span class="status ${v>=0?'st-ok':'st-over'}">${v>=0?'+':''}${v.toFixed(1)}%</span>`;}
+function calcVar(){
+  const g=id=>+document.getElementById(id).value||0;
+  const p1={spend:g('p1_spend'),clicks:g('p1_clicks'),conv:g('p1_conv'),impr:g('p1_impr')};
+  const p2={spend:g('p2_spend'),clicks:g('p2_clicks'),conv:g('p2_conv'),impr:g('p2_impr')};
+  p1.cpc=p1.clicks?p1.spend/p1.clicks:0;p2.cpc=p2.clicks?p2.spend/p2.clicks:0;
+  p1.cpa=p1.conv?p1.spend/p1.conv:0;p2.cpa=p2.conv?p2.spend/p2.conv:0;
+  p1.ctr=p1.impr?p1.clicks/p1.impr*100:0;p2.ctr=p2.impr?p2.clicks/p2.impr*100:0;
+  document.getElementById('p1_cpc').textContent='$'+p1.cpc.toFixed(2);document.getElementById('p2_cpc').textContent='$'+p2.cpc.toFixed(2);
+  document.getElementById('p1_cpa').textContent='$'+p1.cpa.toFixed(0);document.getElementById('p2_cpa').textContent='$'+p2.cpa.toFixed(0);
+  const vr=(a,b)=>b?((a/b-1)*100):0;
+  document.getElementById('v_spend').innerHTML=pct(vr(p2.spend,p1.spend));
+  document.getElementById('v_clicks').innerHTML=pct(vr(p2.clicks,p1.clicks));
+  document.getElementById('v_conv').innerHTML=pct(vr(p2.conv,p1.conv));
+  document.getElementById('v_cpc').innerHTML=pct(vr(p2.cpc,p1.cpc));
+  document.getElementById('v_cpa').innerHTML=pct(vr(p2.cpa,p1.cpa));
+  document.getElementById('v_ctr').innerHTML=pct(vr(p2.ctr,p1.ctr));
+}
+
+document.getElementById('calcVarBtn').addEventListener('click', calcVar);
+calcVar();
+
+document.getElementById('showAuctionTipsBtn').addEventListener('click', () => {
+  document.getElementById('auctionTips').classList.add('show');
+});
+
+/* ============ BLOQUE 4 · QUIRÓFANO ============ */
+const treatments=[
+  {n:'Negativizar términos basura (SQR)',d:'Detiene el gasto en consultas irrelevantes y sube la relevancia.',good:true},
+  {n:'Reescribir anuncios + extensiones',d:'Mejora CTR y relevancia → eleva Quality Score y baja CPC.',good:true},
+  {n:'Optimizar Landing Page',d:'Sube CVR y experiencia post-clic, parte del Quality Score.',good:true},
+  {n:'Subir presupuesto al doble',d:'No corrige eficiencia; amplifica el gasto malo.',good:false},
+  {n:'Aplicar todas las recomendaciones de Google',d:'A ciegas puede desordenar la cuenta y elevar CPCs.',good:false},
+  {n:'Pausar y crear campaña nueva idéntica',d:'Pierdes histórico y aprendizaje sin atacar la causa raíz.',good:false}
+];
+
+function renderTreat(){
+  const grid = document.getElementById('treatGrid');
+  grid.innerHTML = treatments.map((t,i)=>`
+    <div class="treat" data-i="${i}">
+      <div class="chk">✓</div>
+      <div>
+        <div class="t-name">${t.n}</div>
+        <div class="t-desc">${t.d}</div>
+      </div>
+    </div>`).join('');
+  
+  grid.querySelectorAll('.treat').forEach(el => {
+    el.addEventListener('click', () => {
+      const i = parseInt(el.dataset.i);
+      const sel = document.querySelectorAll('.treat.sel').length;
+      if(!el.classList.contains('sel') && sel >= 3) return;
+      el.classList.toggle('sel');
+    });
+  });
+}
+
+function diagnose(){
+  const sel=[...document.querySelectorAll('.treat.sel')].map(e=>+e.dataset.i);
+  const box=document.getElementById('diagnosis');box.classList.add('show');
+  if(sel.length<3){box.className='diagnosis show bad';box.innerHTML='⚠️ Selecciona exactamente <b>3 acciones</b> para confirmar el tratamiento.';return;}
+  const good=sel.filter(i=>treatments[i].good).length;
+  if(good===3){box.className='diagnosis show good';box.innerHTML='🟢 <b>Paciente estabilizado.</b> Atacaste la causa raíz: relevancia (QS), tráfico limpio (SQR) y conversión (LP). <b>Diagnóstico de Senior.</b>';}
+  else{box.className='diagnosis show bad';box.innerHTML=`🟡 Diagnóstico parcial: ${good}/3 acciones de alto impacto. Con CTR 1.2% y QS 3/10 el problema es <b>relevancia + tráfico sucio</b>, no presupuesto.`;}
+}
+
+function resetTreat(){document.querySelectorAll('.treat.sel').forEach(e=>e.classList.remove('sel'));document.getElementById('diagnosis').classList.remove('show');}
+
+document.getElementById('diagnoseBtn').addEventListener('click', diagnose);
+document.getElementById('resetTreatBtn').addEventListener('click', resetTreat);
+renderTreat();
+
+/* ============ EXIT TICKETS ============ */
+function gradeQuiz(qi){
+  const ticket=document.querySelector(`.ticket[data-quiz="${qi}"]`);
+  const qs=[...ticket.querySelectorAll('.q')];
+  let score=0;const details=[];
+  qs.forEach(q=>{
+    q.querySelectorAll('.opt').forEach(o=>o.classList.remove('correct','incorrect'));
+    const qtext=q.querySelector('.qtext').innerText.trim();
+    if(q.classList.contains('short')){
+      const inp=q.querySelector('input');
+      const keys=q.dataset.answer.split('|');
+      const val=(inp.value||'').toLowerCase();
+      const ok=keys.some(k=>val.includes(k));
+      q.querySelector('.reveal').classList.add('show');
+      inp.style.borderColor=inp.value.trim()?(ok?'var(--g-green)':'var(--g-yellow)'):'var(--line)';
+      if(ok)score++;
+      const ansText=q.querySelector('.reveal').innerText.replace(/^Esperado:\s*/i,'').trim();
+      details.push({q:qtext,given:inp.value.trim()||'(sin responder)',answer:ansText,correct:ok});
+    }else{
+      const correct=q.dataset.correct;const checked=q.querySelector('input:checked');
+      const correctText=q.querySelector(`input[value="${correct}"]`).closest('.opt').innerText.trim();
+      let ok=false,given='(sin responder)';
+      if(checked){given=checked.closest('.opt').innerText.trim();const lbl=checked.closest('.opt');
+        if(checked.value===correct){lbl.classList.add('correct');score++;ok=true;}
+        else{lbl.classList.add('incorrect');q.querySelector(`input[value="${correct}"]`).closest('.opt').classList.add('correct');}
+      }else{q.querySelector(`input[value="${correct}"]`).closest('.opt').classList.add('correct');}
+      details.push({q:qtext,given,answer:correctText,correct:ok});
+    }
+  });
+  const total=qs.length;
+  trainingResults.exit[qi]={score,total,details};
+  const box=ticket.querySelector('.result-box');box.classList.add('show');
+  if(score===total){box.className='result-box show pass';box.innerHTML=`✅ ${score}/${total} · ¡Dominado! Listo para aplicarlo en cuentas reales.`;}
+  else{box.className='result-box show mid';box.innerHTML=`📌 ${score}/${total} correctas. Revisa las respuestas en verde y refuerza el concepto.`;}
+  refreshScoreboard();
+}
+
+document.getElementById('gradeBtn0').addEventListener('click', () => gradeQuiz(0));
+document.getElementById('gradeBtn1').addEventListener('click', () => gradeQuiz(1));
+document.getElementById('gradeBtn2').addEventListener('click', () => gradeQuiz(2));
+document.getElementById('gradeBtn3').addEventListener('click', () => gradeQuiz(3));
+
+/* ============ EXAMEN FINAL ============ */
+function gradeEval(){
+  const groups={};let totalScore=0,totalQ=0,answered=0;
+  document.querySelectorAll('.eval-q').forEach(q=>{
+    const mod=q.dataset.module;
+    groups[mod]=groups[mod]||{score:0,total:0,details:[]};
+    groups[mod].total++;totalQ++;
+    q.querySelectorAll('.opt').forEach(o=>o.classList.remove('correct','incorrect'));
+    const correct=q.dataset.correct;const checked=q.querySelector('input:checked');
+    const qtext=q.querySelector('.qtext').innerText.trim();
+    const correctText=q.querySelector(`input[value="${correct}"]`).closest('.opt').innerText.trim();
+    let ok=false,given='(sin responder)';
+    if(checked){answered++;given=checked.closest('.opt').innerText.trim();const lbl=checked.closest('.opt');
+      if(checked.value===correct){lbl.classList.add('correct');ok=true;groups[mod].score++;totalScore++;}
+      else{lbl.classList.add('incorrect');q.querySelector(`input[value="${correct}"]`).closest('.opt').classList.add('correct');}
+    }else{q.querySelector(`input[value="${correct}"]`).closest('.opt').classList.add('correct');}
+    const ex=q.querySelector('.reveal');if(ex)ex.classList.add('show');
+    groups[mod].details.push({q:qtext,given,answer:correctText,correct:ok});
+  });
+  trainingResults.evalByModule=groups;
+  const box=document.getElementById('evalResult');box.classList.add('show');
+  const p=Math.round(totalScore/totalQ*100);
+  let cls='fail',msg='';
+  if(p>=80){cls='pass';msg='🟢 Nivel Estratega Senior.';}
+  else if(p>=60){cls='mid';msg='🟡 Sólido, pero refuerza los módulos en rojo.';}
+  else{cls='fail';msg='🔴 A reforzar: repasa los bloques antes de operar solo.';}
+  box.className=`result-box show ${cls}`;
+  box.innerHTML=`Puntaje global del examen: <b>${totalScore}/${totalQ} (${p}%)</b> · ${answered}/${totalQ} respondidas · ${msg}`;
+  refreshScoreboard();
+  document.querySelector('.export-panel').scrollIntoView({behavior:'smooth'});
+}
+
+function resetEval(){
+  document.querySelectorAll('.eval-q input:checked').forEach(i=>i.checked=false);
+  document.querySelectorAll('.eval-q .opt').forEach(o=>o.classList.remove('correct','incorrect'));
+  document.querySelectorAll('.eval-q .reveal').forEach(r=>r.classList.remove('show'));
+  document.getElementById('evalResult').classList.remove('show');
+  trainingResults.evalByModule={};refreshScoreboard();
+}
+
+document.getElementById('gradeEvalBtn').addEventListener('click', gradeEval);
+document.getElementById('resetEvalBtn').addEventListener('click', resetEval);
+
+/* ============ SCOREBOARD ============ */
+function stateBadge(p){if(p>=80)return '<span class="score-badge sb-ok">Dominado</span>';if(p>=60)return '<span class="score-badge sb-mid">A reforzar</span>';return '<span class="score-badge sb-no">Crítico</span>';}
+
+function refreshScoreboard(){
+  const tb=document.querySelector('#scoreboard tbody');const rows=[];
+  let exScore=0,exTotal=0,exAny=false;
+  Object.keys(exitNames).forEach(k=>{
+    if(trainingResults.exit[k]){const r=trainingResults.exit[k];const p=Math.round(r.score/r.total*100);
+      exScore+=r.score;exTotal+=r.total;exAny=true;
+      rows.push(`<tr><td>${exitNames[k]}</td><td>Exit Ticket</td><td>${r.score}/${r.total}</td><td>${p}%</td><td>${stateBadge(p)}</td></tr>`);}
+    else rows.push(`<tr><td>${exitNames[k]}</td><td>Exit Ticket</td><td>—</td><td>—</td><td><span class="score-badge sb-na">Pendiente</span></td></tr>`);
+  });
+  if(exAny){const p=Math.round(exScore/exTotal*100);rows.push(`<tr class="row-sub"><td>Subtotal Exit Tickets</td><td>—</td><td>${exScore}/${exTotal}</td><td>${p}%</td><td>${stateBadge(p)}</td></tr>`);}
+  const mods=Object.keys(trainingResults.evalByModule);
+  let evScore=0,evTotal=0;
+  if(mods.length){
+    mods.forEach(m=>{const r=trainingResults.evalByModule[m];const p=Math.round(r.score/r.total*100);evScore+=r.score;evTotal+=r.total;
+      rows.push(`<tr><td>${m}</td><td>Examen Final</td><td>${r.score}/${r.total}</td><td>${p}%</td><td>${stateBadge(p)}</td></tr>`);});
+    const p=Math.round(evScore/evTotal*100);
+    rows.push(`<tr class="row-eval-sub"><td>Subtotal Examen Final</td><td>—</td><td>${evScore}/${evTotal}</td><td>${p}%</td><td>${stateBadge(p)}</td></tr>`);
+  } else {
+    rows.push(`<tr><td>Examen Final (4 módulos)</td><td>Examen Final</td><td>—</td><td>—</td><td><span class="score-badge sb-na">Pendiente</span></td></tr>`);
+  }
+  if(exAny||mods.length){const gS=exScore+evScore,gT=exTotal+evTotal;const p=gT?Math.round(gS/gT*100):0;
+    rows.push(`<tr class="row-grand"><td>TOTAL GENERAL</td><td>—</td><td>${gS}/${gT}</td><td>${p}%</td><td>${stateBadge(p)}</td></tr>`);}
+  tb.innerHTML=rows.join('');
+}
+
+document.getElementById('refreshScoreboardBtn').addEventListener('click', refreshScoreboard);
+refreshScoreboard();
+
+/* ============ EXPORT ============ */
+function csvEsc(s){return '"'+String(s).replace(/"/g,'""').replace(/\s+/g,' ').trim()+'"';}
+function buildRows(){
+  const name=document.getElementById('participantName').value||'(sin nombre)';
+  const team=document.getElementById('participantTeam').value||'(sin equipo)';
+  const rows=[];
+  rows.push(['Participante',name]);rows.push(['Equipo/Cuenta',team]);
+  rows.push(['Fecha',new Date().toLocaleString('es-ES')]);rows.push([]);
+
+  rows.push(['=== EXIT TICKETS · DETALLE ===']);
+  rows.push(['Sección','Pregunta','Respuesta dada','Respuesta correcta','Resultado']);
+  Object.keys(exitNames).forEach(k=>{if(trainingResults.exit[k])trainingResults.exit[k].details.forEach(d=>rows.push([exitNames[k],d.q,d.given,d.answer,d.correct?'Correcto':'Incorrecto']));});
+  rows.push([]);
+
+  rows.push(['=== EXAMEN FINAL · DETALLE ===']);
+  rows.push(['Módulo','Pregunta','Respuesta dada','Respuesta correcta','Resultado']);
+  Object.keys(trainingResults.evalByModule).forEach(m=>trainingResults.evalByModule[m].details.forEach(d=>rows.push([m,d.q,d.given,d.answer,d.correct?'Correcto':'Incorrecto'])));
+  rows.push([]);
+
+  rows.push(['=== PUNTAJES POR SECCIÓN ===']);
+  rows.push(['Sección','Tipo','Aciertos','%']);
+  let exS=0,exT=0;
+  Object.keys(exitNames).forEach(k=>{if(trainingResults.exit[k]){const r=trainingResults.exit[k];exS+=r.score;exT+=r.total;rows.push([exitNames[k],'Exit Ticket',r.score+'/'+r.total,Math.round(r.score/r.total*100)+'%']);}});
+  if(exT)rows.push(['SUBTOTAL EXIT TICKETS','—',exS+'/'+exT,Math.round(exS/exT*100)+'%']);
+  let evS=0,evT=0;
+  Object.keys(trainingResults.evalByModule).forEach(m=>{const r=trainingResults.evalByModule[m];evS+=r.score;evT+=r.total;rows.push([m,'Examen Final',r.score+'/'+r.total,Math.round(r.score/r.total*100)+'%']);});
+  if(evT)rows.push(['SUBTOTAL EXAMEN FINAL','—',evS+'/'+evT,Math.round(evS/evT*100)+'%']);
+  if(exT||evT){const gS=exS+evS,gT=exT+evT;rows.push(['TOTAL GENERAL','—',gS+'/'+gT,Math.round(gS/gT*100)+'%']);}
+  return rows;
+}
+function hasData(){return Object.keys(trainingResults.exit).length||Object.keys(trainingResults.evalByModule).length;}
+
+function downloadCSV(){
+  if(!hasData()){toast('⚠️ Primero responde y califica al menos un cuestionario.');return;}
+  const csv=buildRows().map(r=>r.map(csvEsc).join(',')).join('\n');
+  const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});
+  const url=URL.createObjectURL(blob);const a=document.createElement('a');
+  const name=(document.getElementById('participantName').value||'participante').replace(/\s+/g,'_');
+  a.href=url;a.download=`resultados_paidsearch_${name}.csv`;a.click();URL.revokeObjectURL(url);
+  toast('⬇️ CSV completo descargado (Exit Tickets + Examen Final).');
+}
+
+function copySummary(){
+  if(!hasData()){toast('⚠️ Primero responde y califica al menos un cuestionario.');return;}
+  const name=document.getElementById('participantName').value||'(sin nombre)';
+  const team=document.getElementById('participantTeam').value||'(sin equipo)';
+  let txt=`PAID SEARCH ACADEMY · Resultados\nParticipante: ${name}\nEquipo: ${team}\nFecha: ${new Date().toLocaleString('es-ES')}\n\n— EXIT TICKETS —\n`;
+  let exS=0,exT=0;
+  Object.keys(exitNames).forEach(k=>{if(trainingResults.exit[k]){const r=trainingResults.exit[k];exS+=r.score;exT+=r.total;txt+=`• ${exitNames[k]}: ${r.score}/${r.total} (${Math.round(r.score/r.total*100)}%)\n`;}});
+  if(exT)txt+=`  Subtotal Exit Tickets: ${exS}/${exT} (${Math.round(exS/exT*100)}%)\n`;
+  txt+=`\n— EXAMEN FINAL —\n`;
+  let evS=0,evT=0;
+  Object.keys(trainingResults.evalByModule).forEach(m=>{const r=trainingResults.evalByModule[m];evS+=r.score;evT+=r.total;txt+=`• ${m}: ${r.score}/${r.total} (${Math.round(r.score/r.total*100)}%)\n`;});
+  if(evT)txt+=`  Subtotal Examen Final: ${evS}/${evT} (${Math.round(evS/evT*100)}%)\n`;
+  if(exT||evT){const gS=exS+evS,gT=exT+evT;txt+=`\n=> TOTAL GENERAL: ${gS}/${gT} (${Math.round(gS/gT*100)}%)\n`;}
+  navigator.clipboard.writeText(txt).then(()=>toast('📋 Resumen copiado al portapapeles.'),()=>toast('No se pudo copiar.'));
+}
+
+document.getElementById('downloadCSVBtn').addEventListener('click', downloadCSV);
+document.getElementById('copySummaryBtn').addEventListener('click', copySummary);
+document.getElementById('printBtn').addEventListener('click', () => window.print());
+
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(window._tt);window._tt=setTimeout(()=>t.classList.remove('show'),2600);}
+</script>
+
+
+</body></html>
